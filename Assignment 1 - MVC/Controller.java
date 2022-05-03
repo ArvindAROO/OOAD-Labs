@@ -46,10 +46,14 @@ public class Controller {
     }
     
     private void incLinkBtnAndLabel(){
-        model.incX();   
-        view.setText(Integer.toString(model.getX()));
-    }    
-
+        int flag = model.incX();   
+        if(flag == 0){
+            view.setText(Integer.toString(model.getX()));
+        }else{
+            view.setText("Max value reached");
+            view.createPopUP();
+        }    
+    }
     private void decLinkBtnAndLabel(){
         model.decX();   
         view.setText(Integer.toString(model.getX()));
@@ -67,8 +71,7 @@ public class Controller {
         
             model.setX(copy);
             view.setText(Integer.toString(model.getX()));
-        }
-        catch(NumberFormatException e){
+        } catch(NumberFormatException e){
             view.setText("Invalid integer");
         }
         

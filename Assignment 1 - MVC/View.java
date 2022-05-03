@@ -73,5 +73,9 @@ public class View {
 
     public void setText(String text){
         label.setText(text);
+    }   
+
+    public void createPopUP(){
+        JOptionPane.showMessageDialog(frame, "Max value reached");
     }
 }
